@@ -20,7 +20,7 @@ print(first_two + last_two)
 ################
 
 some_string = "d"
-first_two = some_string[0:2]
+first_two = some_string  [0:2]
 last_two = some_string[-2:]
 if len(some_string) < 2:
     print('')
@@ -57,6 +57,15 @@ def dollar_bills():
     print(some_string[::-1])
 
 dollar_bills()
+
+def clean_dollar_bills():
+    some_string = 'dippidy doo da'
+    first_char = some_string[0]
+    new_string = some_string[1:].replace(first_char, '$')
+    some_string = first_char + new_string
+    print(some_string)
+
+clean_dollar_bills()
 
 #############
 # Residents #
