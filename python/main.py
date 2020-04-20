@@ -1,28 +1,12 @@
-import random
+def guessing_game():
+  while True:
+    print('What is your guess?')
+    guess = input()
 
-weights = {
-    'win' : 1,
-    'break even' : 5,
-    'lose' : 6
-}
+    if guess == '42':
+      print('Correct!')
+      return False
+    else:
+      print(f'No go, buddy. {guess} is wrong. Try again.')
 
-def weighted_lottery(weights):
-    hat_container = []
-    key_container = list(weights)
-    win_count = weights['win']
-    draw_count = weights['break even']
-    lose_count = weights['lose']
-
-    for win in range(win_count):
-        hat_container.append(key_container[0])
-
-    for draw in range(draw_count):
-        hat_container.append(key_container[1])
-
-    for lose in range(lose_count):
-        hat_container.append(key_container[2])
-
-    outcome = random.choice(hat_container)
-    print(f'You {outcome}')
-
-weighted_lottery(weights)
+guessing_game()

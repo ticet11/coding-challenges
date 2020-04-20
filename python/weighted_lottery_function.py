@@ -25,4 +25,12 @@ def weighted_lottery(weights):
     outcome = random.choice(hat_container)
     print(f'You {outcome}')
 
+    play_again = (input('Play again? Yes/No:'))
+
+    if play_again.lower().strip() == 'yes':
+        weighted_lottery(weights)
+    else: 
+        print('K, thx, bye.')
+
+
 weighted_lottery(weights)
