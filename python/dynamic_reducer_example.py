@@ -21,7 +21,7 @@ def dynamic_reducer(collection, op):
     }
 
     return reduce((lambda total, element: operators[op](total, element)), collection)
-
+    # return reduce(operators[op], collection)
 
 print(dynamic_reducer([1, 2, 3], '+'))
 print(dynamic_reducer([1, 2, 3], '-'))
