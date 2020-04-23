@@ -13,4 +13,6 @@ for post in posts:
     sep_L = "posts/"
     sep_R = '">'
     title = title.split(sep_L, 1)[1].split(sep_R, 1)[0].replace('-', ' ').title()
-    print(title)
+    f = open('title.txt', 'a')
+    f.write((f'{title}\n'))
+f.close()
