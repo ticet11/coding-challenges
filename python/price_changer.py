@@ -8,9 +8,9 @@ class Item:
 def cents_changer(Item, new_cents):
     old_price = Item.price
     Item.price = int(Item.price) + new_cents
-    return f'You have changed the price of {Item.name}s from ${old_price} to ${Item.price}!'
+    print (f'You have changed the price of {Item.name}s from ${old_price} to ${Item.price}!')
 
-item1 = Item('book', 5.50)
+item1 = Item('book', 5.51)
 item2 = Item('pencil', 1.22)
 
-cents_changer(item2, 0.99)
+cents_changer(item1, 0.99)
