@@ -6,14 +6,13 @@ class Item:
         self.price = price
 
 def cents_changer(Item, new_cents):
+    old_price = Item.price
     if new_cents > .99: 
-        old_price = Item.price
         Item.price = int(Item.price) + new_cents/100
-        print (f'You have changed the price of {Item.name}s from ${old_price} to ${Item.price}!')
     else:
-        old_price = Item.price
         Item.price = int(Item.price) + new_cents
-        print (f'You have changed the price of {Item.name}s from ${old_price} to ${Item.price}!')
+        
+    print (f'You have changed the price of {Item.name}s from ${old_price} to ${Item.price}!')
 
 item1 = Item('book', 5.51)
 item2 = Item('pencil', 1.22)
