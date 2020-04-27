@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import os
@@ -36,8 +36,13 @@ class MovieSchema(ma.Schema):
 movie_schema = MovieSchema()
 movies_schema = MovieSchema(many=True)
 
+# Endpoint for homepage
+@app.route('/')
+def home():
+    return render_template('index.html')
+
 # Endpoint to add new movie
-@app.route('/movie', methods=['POST'])
+@app.route('/movie/', methods=['POST'])
 def add_movie():
     title = request.json['title']
     year = request.json['year']
@@ -52,23 +57,23 @@ def add_movie():
 
     movie = Movie.query.get(new_movie.id)
 
-    return movie_schema.jsonify(movie)
+    return render_template('movies.html')
 
 # Endpoint to query all movies
-@app.route('/movies', methods=['GET'])
+@app.route('/movies/', methods=['GET'])
 def get_movies():
     all_movies = Movie.query.all()
     result = movies_schema.dump(all_movies)
-    return jsonify(result)
+    return render_template('movies.html', movies=result)
 
 # Endpoint for querying a single movie
-@app.route('/movie/<id>', methods=['GET'])
+@app.route('/movie/<id>/', methods=['GET'])
 def get_movie(id):
     movie = Movie.query.get(id)
     return movie_schema.jsonify(movie)
 
 # Endpoint for updating a movie
-@app.route('/movie/<id>', methods=['PUT'])
+@app.route('/movie/<id>/', methods=['PUT'])
 def movie_update(id):
     movie = Movie.query.get(id)
     title = request.json['title']
@@ -87,7 +92,7 @@ def movie_update(id):
     return movie_schema.jsonify(movie)
 
 # Endpoint for deleting a movie
-@app.route('/movie/<id>', methods=['DELETE'])
+@app.route('/movie/<id>/', methods=['DELETE'])
 def movie_delete(id):
     movie = Movie.query.get(id)
     db.session.delete(movie)
