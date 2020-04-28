@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>BKMDb Movies</title>
+    </head>
+    <body>
+        <div class="heading">
+            <h1>The BKMDb Movie List</h1>
+            <p>Here are the movies!</p>
+        </div>
+        <div class="movies-container">
+            {% for movie in movies %}
+                <ul class="movie">
+                    {% for attribute in movie %}
+                        <li>
+                            {{attribute}}: {{movie[attribute]}}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        </div>
+    </body>
+</html>
