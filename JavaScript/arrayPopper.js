@@ -9,4 +9,5 @@ class NumbersList {
     }
   }
   
-  myList = new NumbersList([1, 2, 3, 4, 5]);
+  const myList = new NumbersList([1, 2, 3, 4, 5]);
+  const myOtherList = new NumbersList([3, 4, 6, 7, 45])
