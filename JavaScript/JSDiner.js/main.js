@@ -1,3 +1,5 @@
+// TODO: Remove alerts and edit HTML instead.
+
 const menus = {
   omletteMenu: {
     "ham and cheese" : 3,
@@ -43,6 +45,8 @@ const waiterBotSpeech = {
   'mashed potatoes'   : 'Oh, actually, we can not mash those, it will be whole.'
 }
 
+const content = document.querySelector('.content');
+
 const whichMenu = () => {
   let menuChoice = prompt('Which menu are we looking at?\nbreakfast,\nlunch,\nor dinner?', 'breakfast');
   if (menuChoice === 'breakfast') {
@@ -66,14 +70,15 @@ const getMenuItems = (menu) => {
   }
 };
 
+// TODO: Populate menu in HTML
 const getEntree = (menuItems) => {
   menuItemsString = "";
   for (let i of menuItems) {
     menuItemsString += i + "\n";
     }
+  // content =
   const entree = prompt(
-    `These are our specials, today:\n\n${menuItemsString}\nWhat can I get for you?`,
-    "grilled cheese"
+    `These are our specials, today:\n\n${menuItemsString}\nWhat can I get for you?`
   );
   entreeResponse(entree.toLowerCase());
 };
@@ -97,5 +102,3 @@ sideResponse(side2.toLowerCase());
 const sideResponse = (customerSpeech) => {
 alert(`Okay, ${customerSpeech}. ${waiterBotSpeech[customerSpeech]}`);
 };
-
-whichMenu();
