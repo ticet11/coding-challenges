@@ -76,10 +76,10 @@ const getEntree = (menuItems) => {
   for (let i of menuItems) {
     menuItemsString += i + "\n";
     }
-  // content =
-  const entree = prompt(
-    `These are our specials, today:\n\n${menuItemsString}\nWhat can I get for you?`
-  );
+  content.appendChild(document.createTextNode(`These are our specials, today:\n\n${menuItemsString}\nWhat can I get for you?`))
+  // const entree = prompt(
+  //   `These are our specials, today:\n\n${menuItemsString}\nWhat can I get for you?`
+  // );
   entreeResponse(entree.toLowerCase());
 };
 
