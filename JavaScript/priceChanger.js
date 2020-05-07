@@ -1,5 +1,9 @@
 function priceChanger(originalPrice, newCents) {
-    const newPrice = newCents < 1 ? Math.floor(originalPrice) + newCents : Math.floor(originalPrice) + (newCents/100);
-   return newPrice;
- }
- console.log(priceChanger(1.50, .23));
+    const flooredOriginal = Math.floor(originalPrice);
+    const newPrice =
+        newCents < 1 ? 
+          flooredOriginal + newCents : 
+          flooredOriginal + newCents / 100;
+    return newPrice;
+}
+console.log(priceChanger(1.5, 23));
