@@ -6,7 +6,9 @@ sales = {
 }
 
 def salesHistogram(salesData):
+    multiLineString = '\n'
     for key, value in salesData.items():
-        print(key[0], value*'$')
+        multiLineString += (key[0] + value*'$' + '\n')
+    return multiLineString
 
-salesHistogram(sales)
+print(salesHistogram(sales))
