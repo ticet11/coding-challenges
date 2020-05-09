@@ -1,0 +1,12 @@
+.todoItem:hover {
+    cursor: pointer;
+}
+
+.completedTodoItem {
+    text-decoration: line-through;
+}
+
+.empty {
+    text-decoration: line-through;
+    color: red;
+}
