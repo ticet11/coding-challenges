@@ -1,5 +1,5 @@
 # Python Bank
-# TODO:
+# TODO: 
 
 
 class User:
@@ -23,22 +23,25 @@ class User:
 
 class Bank:
     def __init__(self):
-        bankFunds = 0
+        self.bankFunds = 0
 
     def retrieve_balance(self, account_number, amount=None):
         if amount == None:
             return account_number.provide_balance()
         else:
             if account_number.handle_withdraw(amount):
+                self.bankFunds -= amount
                 return f"Here's your ${amount}."
             else:
                 return 'Insufficient funds.'
 
     def attempt_deposit(self, account_number, amount):
+        self.bankFunds += amount
         return f'Thank you. Your new balance is ${account_number.handle_deposit(amount)}.'
 
     def attempt_bill_pay(self, account_number, amount, institution):
         if account_number.handle_withdraw(amount):
+            self.bankFunds -= amount
             return f"We've forwarded ${amount} to {institution} for you."
         else:
             return 'Insufficient funds.'
