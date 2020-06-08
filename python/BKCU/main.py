@@ -1,5 +1,8 @@
 # Python Bank
 # TODO: 
+# user interaction
+#  - atm interface
+#   - greeting
 
 
 class User:
@@ -12,7 +15,7 @@ class User:
         return self.bank.retrieve_balance(self.account)
 
     def request_withdraw(self, amount):
-        return self.bank.retrieve_balance(self.account, amount)
+        return self.bank.attempt_withdraw(self.account, amount)
 
     def request_deposit(self, amount):
         return self.bank.attempt_deposit(self.account, amount)
@@ -25,10 +28,10 @@ class Bank:
     def __init__(self):
         self.bankFunds = 0
 
-    def retrieve_balance(self, account_number, amount=None):
-        if amount == None:
+    def retrieve_balance(self, account_number):
             return account_number.provide_balance()
-        else:
+
+    def attempt_withdraw(self, account_number, amount):
             if account_number.handle_withdraw(amount):
                 self.bankFunds -= amount
                 return f"Here's your ${amount}."
