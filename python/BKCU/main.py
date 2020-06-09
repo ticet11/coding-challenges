@@ -1,7 +1,7 @@
 # Python Bank
 # TODO:
-# The program needs to keep running until the user decides to quit the program.
-# user interaction
+# Utilize bank funds, possibly.
+# Multiple users working with the same state?
 
 
 class User:
