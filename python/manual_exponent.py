@@ -7,4 +7,4 @@ def exponenter(base, exponent):
         base_array.append(base)
     return functools.reduce(lambda a, b : a * b, base_array)
 
-print(exponenter(2, 2))
+print(exponenter(10, 2))
